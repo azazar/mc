@@ -1155,12 +1155,12 @@ Open=@EXTHELPERSDIR@/archive.sh view zst %var{PAGER:more}
 View=%view{ascii} @EXTHELPERSDIR@/archive.sh view zst
 
 [zip-by-type]
-Type=\\(Zip archive
+Type=^Zip archive data|\\(Zip archive
 Open=%cd %p/uzip://
 View=%view{ascii} @EXTHELPERSDIR@/archive.sh view zip
 
 [jar-war-by-type]
-Type=\\(Java (Jar file|archive) data \\((zip|JAR)\\)\\)
+Type=^Java archive data|\\(Java (Jar file|archive) data \\((zip|JAR)\\)\\)
 TypeIgnoreCase=true
 Open=%cd %p/uzip://
 View=%view{ascii} @EXTHELPERSDIR@/archive.sh view zip
