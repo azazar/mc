@@ -1,0 +1,18 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Debug Midnight Commander",
+      "type": "cppdbg",
+      "request": "launch",
+      "program": "${workspaceFolder}/src/mc",
+      "args": [],
+      "stopAtEntry": false,
+      "cwd": "${workspaceFolder}",
+      "environment": [],
+      "externalConsole": false,
+      "MIMode": "gdb",
+      "preLaunchTask": "Build Midnight Commander (bootstrap+configure+make)"
+    }
+  ]
+}
