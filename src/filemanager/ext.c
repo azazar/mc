@@ -71,8 +71,10 @@
 #ifdef USE_FILE_CMD
 #ifdef FILE_B
 #define FILE_CMD "file -z " FILE_B FILE_S FILE_L
+#define FILE_CMD_FALLBACK "file " FILE_B FILE_S FILE_L
 #else
 #define FILE_CMD "file -z " FILE_S FILE_L
+#define FILE_CMD_FALLBACK "file " FILE_S FILE_L
 #endif
 #endif
 
@@ -600,6 +602,10 @@ get_file_type_local (const vfs_path_t *filename_vpath, char *buf, int buflen)
     if (filename_quoted != NULL)
     {
         ret = get_popen_information (FILE_CMD, filename_quoted->str, buf, buflen);
+
+        if (ret == 1 && strncmp (buf, "ERROR:", 6) == 0)
+            ret = get_popen_information (FILE_CMD_FALLBACK, filename_quoted->str, buf, buflen);
+
         g_string_free (filename_quoted, TRUE);
     }
 
