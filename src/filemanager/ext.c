@@ -86,6 +86,12 @@ GString *exec_make_shell_string (const char *lc_data, const vfs_path_t *filename
 
 MC_TESTABLE GString *exec_get_export_variables (const vfs_path_t *filename_vpath);
 
+#ifdef USE_FILE_CMD
+MC_TESTABLE gboolean regex_check_type (const vfs_path_t *filename_vpath, const char *ptr,
+                                       gboolean case_insense, gboolean *have_type,
+                                       GError **mcerror);
+#endif
+
 extern char buffer[BUF_1K];
 #endif
 
@@ -649,7 +655,7 @@ get_file_encoding_local (const vfs_path_t *filename_vpath, char *buf, int buflen
  * Return TRUE for match, FALSE otherwise.
  */
 
-static gboolean
+MC_TESTABLE gboolean
 regex_check_type (const vfs_path_t *filename_vpath, const char *ptr, gboolean case_insense,
                   gboolean *have_type, GError **mcerror)
 {

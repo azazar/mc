@@ -1,0 +1,11 @@
+interface Greeter {
+    greet(name: string): string;
+}
+
+const greeter: Greeter = {
+    greet(name: string): string {
+        return `Hello, !`;
+    },
+};
+
+console.log(greeter.greet("World"));

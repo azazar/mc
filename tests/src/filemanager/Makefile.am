@@ -20,6 +20,7 @@ TESTS = \
 	examine_cd \
 	exec_get_export_variables_ext \
 	ext__exec_make_shell_string \
+	ext__regex_check_type \
 	filegui_is_wildcarded \
 	get_random_hint
 
@@ -36,6 +37,9 @@ exec_get_export_variables_ext_SOURCES = \
 
 ext__exec_make_shell_string_SOURCES = \
 	ext__exec_make_shell_string.c
+
+ext__regex_check_type_SOURCES = \
+	ext__regex_check_type.c
 
 get_random_hint_SOURCES = \
 	get_random_hint.c

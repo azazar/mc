@@ -24,6 +24,7 @@ endif
 EXTRA_DIST = \
 	fixtures/mc.charsets \
 	fixtures/hints/mc.hint \
+	fixtures/filemanager/file-types/sample_files/* \
 	fixtures/viewertest.txt \
 	execute__common.c
 
