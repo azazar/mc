@@ -164,6 +164,12 @@ src/filemanager/examine_cd.trs
 src/filemanager/exec_get_export_variables_ext
 src/filemanager/exec_get_export_variables_ext.log
 src/filemanager/exec_get_export_variables_ext.trs
+src/filemanager/ext__exec_make_shell_string
+src/filemanager/ext__exec_make_shell_string.log
+src/filemanager/ext__exec_make_shell_string.trs
+src/filemanager/ext__regex_check_type
+src/filemanager/ext__regex_check_type.log
+src/filemanager/ext__regex_check_type.trs
 src/filemanager/filegui_is_wildcarded
 src/filemanager/filegui_is_wildcarded.log
 src/filemanager/filegui_is_wildcarded.trs
