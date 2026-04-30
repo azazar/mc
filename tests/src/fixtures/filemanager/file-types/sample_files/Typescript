@@ -1,5 +1,11 @@
-public class Sample {
-    public static void main(String[] args) {
-        System.out.println("hello");
-    }
+interface Greeter {
+    greet(name: string): string;
 }
+
+const greeter: Greeter = {
+    greet(name: string): string {
+        return `Hello, !`;
+    },
+};
+
+console.log(greeter.greet("World"));
