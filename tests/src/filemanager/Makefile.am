@@ -11,6 +11,8 @@ LIBS = @CHECK_LIBS@ \
 	$(top_builddir)/src/libinternal.la \
 	$(top_builddir)/lib/libmc.la
 
+MOCK_FILE_OUTPUT_FILES = $(abs_top_srcdir)/tests/src/fixtures/filemanager/file-types/file_output/*.tsv
+
 if ENABLE_MCLIB
 LIBS += $(GLIB_LIBS)
 endif
@@ -46,3 +48,20 @@ get_random_hint_SOURCES = \
 
 filegui_is_wildcarded_SOURCES = \
 	filegui_is_wildcarded.c
+
+# Generate dynamic test rules for each TSV fixture file
+define test_tsv_template
+check-ext-mapping-mock-file-$(1): ext__regex_check_type
+	@echo "Running extensions type test with $(1)"; \
+	PATH="$(abs_top_srcdir)/tests/src/fixtures/filemanager/file-types:$$$$PATH" \
+	MC_MOCK_FILE_OUTPUT="$(2)" \
+	./ext__regex_check_type
+endef
+
+$(foreach tsv,$(MOCK_FILE_OUTPUT_FILES),$(eval $(call test_tsv_template,$(notdir $(tsv:.tsv=)),$(tsv))))
+
+# Convenience target: run all mock-file tests
+check-ext-mapping-mock-file: $(patsubst %.tsv,check-ext-mapping-mock-file-%,$(notdir $(MOCK_FILE_OUTPUT_FILES)))
+	@echo "All extension mapping tests passed"
+
+.PHONY: check-ext-mapping-mock-file $(patsubst %.tsv,check-ext-mapping-mock-file-%,$(notdir $(MOCK_FILE_OUTPUT_FILES)))
