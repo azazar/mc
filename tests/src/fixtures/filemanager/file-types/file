@@ -1,0 +1,75 @@
+#!/usr/bin/perl
+
+# This is a mock file for testing the file manager's file type detection. It
+# is intended to be called by the file manager test suite with the path to a
+# sample file as an argument. It will read the sample file name, look up the
+# expected output in a TSV file, and print the expected output to stdout. If
+# the sample file name is not found in the TSV file, it will exit with an
+# error code.
+
+use strict;
+use warnings;
+
+sub tsv_unescape {
+    my ($text) = @_;
+
+    $text =~ s/\\x([0-9a-fA-F]{2})/chr (hex ($1))/ge;
+    $text =~ s/\\t/\t/g;
+    $text =~ s/\\n/\n/g;
+    $text =~ s/\\r/\r/g;
+    $text =~ s/\\\\/\\/g;
+
+    return $text;
+}
+
+my $target_file;
+
+for my $arg (@ARGV)
+{
+    next if $arg =~ /^-/;
+    $target_file = $arg;
+    last;
+}
+
+if (!defined $target_file)
+{
+    print STDERR "Usage: $0 [file options] <path>\n";
+    exit 2;
+}
+
+my $sample_name = $target_file;
+$sample_name =~ s{^.*/}{};
+
+my $script_dir = $0;
+$script_dir =~ s{[^/]+$}{};
+$script_dir =~ s{/$}{};
+$script_dir = '.' if $script_dir eq q{};
+
+my $mock_file_dir = "$script_dir";
+
+my $sample_outputs_path = $ENV{MC_MOCK_FILE_OUTPUT};
+if (!defined $sample_outputs_path || $sample_outputs_path eq q{})
+{
+    die "MC_MOCK_FILE_OUTPUT is required (e.g. $mock_file_dir/file_output/<name>.tsv)\n";
+}
+
+open (my $fh, '<', $sample_outputs_path)
+    or die "Cannot open mock file output '$sample_outputs_path': $!\n";
+
+while (my $line = <$fh>)
+{
+    chomp $line;
+    my ($name, $output) = split (/\t/, $line, 2);
+
+    next if !defined $name || !defined $output;
+
+    if (tsv_unescape ($name) eq $sample_name)
+    {
+        print tsv_unescape ($output), "\n";
+        close $fh;
+        exit 0;
+    }
+}
+
+close $fh;
+exit 1;
