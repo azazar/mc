@@ -1,0 +1,47 @@
+3gp	ISO Media, MPEG v4 system, 3GPP
+Mach-O	Mach-O 64-bit x86_64 object, flags:<|SUBSECTIONS_VIA_SYMBOLS>
+Typescript	ASCII text
+apk	ERROR:[gzip: Stdin has more than one entry--rest ignored] (Android package (APK), with AndroidManifest.xml Zip archive data, at least v2.0 to extract, compression method=store)
+bitmap	PC bitmap, Windows 3.x format, 10 x 10 x 24, image size 320, cbSize 374, bits offset 54
+bzip	ASCII text (bzip2 compressed data, block size = 900k)
+bzip2	ASCII text (bzip2 compressed data, block size = 900k)
+compress	empty (compress'd data 16 bits)empty (compress'd data 16 bits)
+elf	ELF 64-bit LSB pie executable, x86-64, version 1 (SYSV), dynamically linked, interpreter /lib64/ld-linux-x86-64.so.2, BuildID[sha1]=e147cbf33ece16210a2706b2cb7fca450f48054d, for GNU/Linux 3.2.0, not stripped
+framemaker	FrameMaker MIF (ASCII) file (7.00)
+gif	GIF image data, version 89a, 1 x 1
+gzip	ASCII text (gzip compressed data, from Unix)
+info-by-type	GNU Info, ASCII text
+ipk-deb	Debian binary package (format 2.0), with control.tar.xz, data compression xz
+ipk-openwrt	POSIX tar archive (GNU) (gzip compressed data, from Unix)
+jar-war-by-type	ERROR:[gzip: Stdin has more than one entry--rest ignored] (Java archive data (JAR))
+jng	JNG video data,
+jpeg	JPEG image data, JFIF standard 1.02, aspect ratio, density 1x1, segment length 16, comment: "Lavc61.19.101", baseline, precision 8, 320x240, components 3
+lha	  LHa (2.x) archive data  [lh5], with "nullfile"
+lz	empty (lzip compressed data, version: 1)
+lzma	ASCII text (LZMA compressed data, streamed)
+mailbox	ASCII text
+man	troff or preprocessor input, ASCII text
+mng	MNG video data, 1 x 1
+msdoc-by-type	Composite Document File V2 Document, Little Endian, Os: Windows, Version 1.0, Code page: -535, Revision Number: 0
+mso-doc-1	Composite Document File V2 Document, Little Endian, Os: Windows, Version 1.0, Code page: -535, Revision Number: 0
+mso-doc-2	ERROR:[gzip: Stdin has more than one entry--rest ignored] (Zip archive data, at least v2.0 to extract, compression method=store)
+msxls-by-type	Composite Document File V2 Document, Little Endian, Os: Windows, Version 1.0, Code page: -535, Revision Number: 0
+netpbm	Netpbm image data, size = 100 x 100, rawbits, greymap
+pak	PAK archive data
+par2	Parity Archive Volume Set
+pdf	PDF document, version 1.4, 1 pages
+pgm	Netpbm image data, size = 1 x 1, rawbits, greymap
+png	PNG image data, 100 x 100, 1-bit colormap, non-interlaced
+postscript	PostScript document text
+ppm	Netpbm image data, size = 1 x 1, rawbits, pixmap
+rbm	Netpbm image data, size = 8 x 1, rawbits, bitmap
+sqlite3.db	SQLite 3.x database, last written using SQLite version 3046001, file counter 2, database pages 2, cookie 0x1, schema 4, UTF-8, version-valid-for 2
+squashfs	Squashfs filesystem, little endian, version 4.0, zlib compressed, 244 bytes, 2 inodes, blocksize: 131072 bytes, created: Wed Apr 29 15:38:09 2026
+tiff	TIFF image data, little-endian, direntries=15, height=100, bps=16, compression=none, PhotometricInterpretation=BlackIsZero, orientation=upper-left, width=100
+troff.bzip	troff or preprocessor input, ASCII text (bzip2 compressed data, block size = 900k)
+troff.bzip2	troff or preprocessor input, ASCII text (bzip2 compressed data, block size = 900k)
+troff.gz	troff or preprocessor input, ASCII text (gzip compressed data, from Unix)
+webm-by-type	WebM
+xz	ASCII text (XZ compressed data, checksum CRC64)
+zip-by-type	ERROR:[gzip: Stdin has more than one entry--rest ignored] (Zip archive data, at least v1.0 to extract, compression method=store)
+zstd	empty (Zstandard compressed data (v0.8+), Dictionary ID: None)
