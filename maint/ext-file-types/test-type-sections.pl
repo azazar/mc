@@ -48,11 +48,6 @@ for my $section (keys %section_type) {
 
     chomp $file_output;
 
-    if ($file_output =~ /^ERROR:/) {
-        $file_output = `file -b -L -S "$sample_file_path" 2>/dev/null`;
-        chomp $file_output;
-    }
-
     $type_regexp =~ s/\\\\/\\/g;
 
     # Check if the sample file matches the type regexp
