@@ -1,10 +1,10 @@
 #!/usr/bin/perl
 
 use strict;
+use File::Basename;
 
-my $usage = "Usage: $0 <path_to_extensions_ini_file> <path_to_sample_files_dir>\n";
-my $extensions_ini_file = $ARGV[0] || die $usage;
-my $sample_files_dir = $ARGV[1] || die $usage;
+my $extensions_ini_file = $ARGV[0] // dirname($0) . '/../../misc/mc.ext.ini';
+my $sample_files_dir = $ARGV[1] // dirname($0) . '/../../tests/src/fixtures/filemanager/file-types/sample_files';
 
 open my $fh, '<', $extensions_ini_file or die "Could not open file '$extensions_ini_file' $!";
 my $current_section;

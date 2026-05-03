@@ -1,8 +1,9 @@
 #!/usr/bin/perl
 
 use strict;
+use File::Basename;
 
-my $extensions_ini_file = $ARGV[0] || die "Usage: $0 <path_to_extensions_ini_file>\n";
+my $extensions_ini_file = $ARGV[0] // dirname($0) . '/../../misc/mc.ext.ini';
 
 open my $fh, '<', $extensions_ini_file or die "Could not open file '$extensions_ini_file' $!";
 my $current_section;

@@ -1,4 +1,4 @@
-REPO_ROOT := $(abspath ..)
+REPO_ROOT := $(abspath ../..)
 EXTENSIONS_INI_FILE ?= $(REPO_ROOT)/misc/mc.ext.ini
 SECTIONS_WITH_TYPE = $(shell perl list-type-sections.pl $(EXTENSIONS_INI_FILE))
 
