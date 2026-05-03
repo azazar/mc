@@ -9,6 +9,7 @@
 
 use strict;
 use warnings;
+use File::Basename;
 
 sub tsv_unescape {
     my ($text) = @_;
@@ -40,17 +41,17 @@ if (!defined $target_file)
 my $sample_name = $target_file;
 $sample_name =~ s{^.*/}{};
 
-my $script_dir = $0;
-$script_dir =~ s{[^/]+$}{};
-$script_dir =~ s{/$}{};
-$script_dir = '.' if $script_dir eq q{};
+my $script_dir = dirname($0);
 
-my $mock_file_dir = "$script_dir";
+my $mock_file_dir = "$script_dir/file_output";
 
-my $sample_outputs_path = $ENV{MC_MOCK_FILE_OUTPUT};
-if (!defined $sample_outputs_path || $sample_outputs_path eq q{})
+my $sample_outputs_path = $ENV{'MC_MOCK_FILE_OUTPUT'};
+
+$sample_outputs_path = $mock_file_dir . '/' . $ENV{'MC_MOCK_FILE_OUTPUT'} if !($sample_outputs_path !~ /^\//);
+
+if (!-f $sample_outputs_path)
 {
-    die "MC_MOCK_FILE_OUTPUT is required (e.g. $mock_file_dir/file_output/<name>.tsv)\n";
+    die "MC_MOCK_FILE_OUTPUT is required (no file found at '$sample_outputs_path')\n";
 }
 
 open (my $fh, '<', $sample_outputs_path)
