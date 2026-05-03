@@ -19,7 +19,7 @@ Utilities for building and validating test data for `mc.ext.ini` `Type` rules.
 3. (Optional) Refresh cross-distro `file` output fixtures:
 	- `bash maint/ext-file-types/collect-file-output-samples.sh`
 4. (Optional) Refresh OS `file` output fixtures for running OS:
-    - `bash maint/ext-file-types/collect-file-output.pl output_name`
+    - `perl maint/ext-file-types/collect-file-output.pl output_name`
 
 ## Notes
 
