@@ -2,8 +2,9 @@
 
 set -e
 
-cd "$(dirname \"$0\")"
+cd "$(dirname "$0")"
 
+PROJECT_ROOT=$(cd ../.. && pwd)
 DOCKER=${DOCKER:-"docker"}
 
 collect() {
@@ -22,7 +23,7 @@ collect() {
         temp_image_tag="temp-image-$image:$image_version"
         $DOCKER build -t "$temp_image_tag" "$build_dir"
         echo "Running container from image $temp_image_tag..."
-        $DOCKER run --rm -v $(cd .. && pwd):/mc "$temp_image_tag" perl /mc/file-types/collect-file-output.pl "$image-$image_version"
+        $DOCKER run --rm -v "$PROJECT_ROOT":/mc "$temp_image_tag" perl /mc/maint/ext-file-types/collect-file-output.pl "$image-$image_version"
     done
 }
 
@@ -47,3 +48,11 @@ collect opensuse/tumbleweed "$OPENSUSE_INSTALL_CMD" latest
 GENTOO_INSTALL_CMD='emerge --sync && emerge --quiet --noreplace file plzip'
 
 collect gentoo/stage3 "$GENTOO_INSTALL_CMD" latest
+
+ALPINE_INSTALL_CMD='apk add --no-cache file zstd xz lzip perl'
+
+collect alpine "$ALPINE_INSTALL_CMD" edge 3.23.4 3.22.4
+
+BREW_INSTALL_CMD='brew install zstd lzip'
+
+collect homebrew/brew "$BREW_INSTALL_CMD" latest

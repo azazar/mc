@@ -21,8 +21,10 @@ $script_dir =~ s{[^/]+$}{};
 $script_dir =~ s{/$}{};
 $script_dir = '.' if $script_dir eq '';
 
-my $samples_path = "$script_dir/../tests/src/fixtures/filemanager/file-types/sample_files";
-my $output_dir = "$script_dir/../tests/src/fixtures/filemanager/file-types/file_output";
+my $project_root = "$script_dir/../..";
+
+my $samples_path = "$project_root/tests/src/fixtures/filemanager/file-types/sample_files";
+my $output_dir = "$project_root/tests/src/fixtures/filemanager/file-types/file_output";
 my $output_name = $ARGV[0];
 $output_name =~ s/[\/\:]/-/g;
 my $output_path = "$output_dir/" . $output_name . '.tsv';
