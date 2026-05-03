@@ -14,8 +14,9 @@ Utilities for building and validating test data for `mc.ext.ini` `Type` rules.
 
 1. Generate sample files:
 	- `make -f maint/ext-file-types/generate-file-samples.mk`
-2. Validate `Type` patterns against local `file` output:
-	- `perl maint/ext-file-types/test-type-sections.pl`
+2. Validate `Type` patterns
+    - Against local `file` output: `perl maint/ext-file-types/test-type-sections.pl`
+    - Against collected `file` output samples for specific distro: `PATH=$(cd tests/src/fixtures/filemanager/file-types && pwd):$PATH MC_MOCK_FILE_OUTPUT=debian-11 perl maint/ext-file-types/test-type-sections.pl`
 3. (Optional) Refresh cross-distro `file` output fixtures:
 	- `bash maint/ext-file-types/collect-file-output-samples.sh`
 4. (Optional) Refresh OS `file` output fixtures for running OS:
