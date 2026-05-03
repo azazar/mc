@@ -1,5 +1,11 @@
 #!/usr/bin/perl
 
+# This script reads the mc.ext.ini file, extracts sections that have a "type" key, and checks
+# if the sample files for those sections match the expected output from the "file" command.
+# It prints any mismatches or missing samples, and summarizes the results at the end.
+# It's not intended to be used as a general test script, but rather as a tool to perform
+# a quick check of the file type definitions in mc.ext.ini against actual sample files.
+
 use strict;
 use File::Basename;
 
