@@ -43,8 +43,7 @@ $(SAMPLE_FILES_DIR)/bitmap: | prep
 	convert -size 10x10 xc:white BMP3:"$@"
 
 $(SAMPLE_FILES_DIR)/bzip: | prep
-	$(call ensure_command,bzip2,bzip2)
-	date | bzip2 > "$@"
+	echo 'QlowOX/////VbJW6AAAAAAA=' | base64 -d > "$@"
 
 $(SAMPLE_FILES_DIR)/bzip2: | prep
 	$(call ensure_command,bzip2,bzip2)
