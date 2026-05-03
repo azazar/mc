@@ -1,6 +1,7 @@
 #!/usr/bin/perl
 
 use strict;
+use File::Basename;
 
 sub tsv_escape {
     my ($text) = @_;
@@ -16,11 +17,7 @@ sub tsv_escape {
 
 die "Usage: $0 <output_file_name_without_extension>\n" unless @ARGV == 1;
 
-my $script_dir = $0;
-$script_dir =~ s{[^/]+$}{};
-$script_dir =~ s{/$}{};
-$script_dir = '.' if $script_dir eq '';
-
+my $script_dir = dirname($0);
 my $project_root = "$script_dir/../..";
 
 my $samples_path = "$project_root/tests/src/fixtures/filemanager/file-types/sample_files";
