@@ -47,7 +47,7 @@ my $mock_file_dir = "$script_dir/file_output";
 
 my $sample_outputs_path = $ENV{'MC_MOCK_FILE_OUTPUT'};
 
-$sample_outputs_path = $mock_file_dir . '/' . $ENV{'MC_MOCK_FILE_OUTPUT'} if !($sample_outputs_path !~ /^\//);
+$sample_outputs_path = $mock_file_dir . '/' . $ENV{'MC_MOCK_FILE_OUTPUT'} unless $sample_outputs_path =~ /^\//;
 
 if (!-f $sample_outputs_path)
 {
